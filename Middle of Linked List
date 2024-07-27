@@ -1,0 +1,37 @@
+//Iterative Method
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* temp=head;
+        int c=0;
+        while(temp){
+            if(temp!=NULL){
+                c++;
+            }
+            temp=temp->next;
+        }
+        temp=head;
+        int k=c/2;
+        while(k--){
+            temp=temp->next;
+        }
+        head=temp;
+        return head;
+        
+    }
+};
+
+//Using Slow and fast approach
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* slow=head;
+        ListNode* high=head;
+        while(high!=NULL && high->next!=NULL){
+            slow=slow->next;
+            high=high->next->next;
+        }
+        return slow;
+        
+    }
+};
